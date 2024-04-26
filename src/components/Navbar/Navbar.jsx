@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-
+import "./Navbar.css"
 const Navbar = ({ darkMode, setDarkMode }) => {
     const navLink = <>
-        <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><span>All Tourists Spot</span></li>
-        <li><span>Add Tourists Spot</span></li>
-        <li><span>My List</span></li>
+        <li><NavLink className={"pb-2 hover:text-green-600"} to={'/'}>Home</NavLink></li>
+        <li><NavLink className={"pb-2 hover:text-green-600"} to={'/allSpot'}>All Tourists Spot</NavLink></li>
+        <li><NavLink className={"pb-2 hover:text-green-600"} to={'/addSpot'}>Add Tourists Spot</NavLink></li>
+        <li><NavLink className={"pb-2 hover:text-green-600"} to={'/myList'}>My List</NavLink></li>
     </>
     return (
         <div className="navbar bg-white/30 backdrop-blur-lg bg-opacity-30 dark:bg-darkPrimary dark:text-white text-[#181818] shadow-lg md:px-10  fixed z-10 ">
@@ -21,7 +21,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 <a className="btn btn-ghost text-xl text-green-600">ঘুড়িং ফিড়িং</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="flex gap-4">
                     {navLink}
                 </ul>
             </div>

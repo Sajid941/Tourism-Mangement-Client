@@ -10,12 +10,13 @@ export default {
     extend: {
       fontFamily:{
         trioBangla:"'Tiro Bangla', serif;",
-
+        inter:"'Inter', sans-serif;"
       },
       colors:{
         darkPrimary:'#1d232a'
-      }
+      },
     },
+
   },
   daisyui:{
     theme:false
