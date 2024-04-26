@@ -2,6 +2,8 @@ import { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Root = () => {
     const [darkMode, setDarkMode] = useState(false)
@@ -15,7 +17,7 @@ const Root = () => {
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
-
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

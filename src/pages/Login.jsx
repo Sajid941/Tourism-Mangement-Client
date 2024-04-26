@@ -2,14 +2,33 @@ import { Link } from 'react-router-dom';
 import '../styles/login.css'
 import { FaEye, FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
+import useAuth from '../hooks/useAuth';
 
 const Login = () => {
+    const { logIn, logInWithGoogle } = useAuth()
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value
         const password = form.password.value
         console.log(email, password);
+        logIn(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+    const handleGoogleLogin = () => {
+        logInWithGoogle()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
     }
     return (
         <div className=''>
@@ -20,21 +39,21 @@ const Login = () => {
                 <div className='bg-white/30 absolute backdrop-blur-sm bg-opacity-30 border border-white/30 p-8 text-center rounded-xl space-y-3'>
                     <h1 className="text-4xl font-bold text-white hover:text-[#00fd00]">Login Here</h1>
                     <div className='border-b-2 space-y-3 pb-5 '>
-                        <a className='btn w-full bg-white text-black border-none'><FaGoogle size={20}/> Login with Google</a>
-                        <a className='btn w-full bg-white text-black border-none'><FaGithub size={20}/>Login with Github</a>
+                        <a onClick={handleGoogleLogin} className='btn w-full bg-white text-black hover:text-white border-none'><FaGoogle size={20} /> Login with Google</a>
+                        <a className='btn w-full bg-white text-black hover:text-white border-none'><FaGithub size={20} />Login with Github</a>
                     </div>
                     <form onSubmit={handleLogin} className="p-4 ">
                         <div className="w-full">
                             <label className="label">
                                 <a className="label-text text-white">Email</a>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered w-full bg-white" required />
+                            <input type="email" name='email' autoComplete='current-email' placeholder="email" className="input input-bordered w-full bg-white" required />
                         </div>
                         <div className="">
                             <label className="label">
                                 <a className="label-text text-white">Password</a>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered w-full bg-white" required /><a className="relative bottom-9 right-2 float-end"><FaEye size={20}/></a>
+                            <input type="password" name='password' autoComplete='current-password' placeholder="password" className="input input-bordered w-full bg-white" required /><a className="relative bottom-9 right-2 float-end"><FaEye size={20} /></a>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover text-white ">Forgot password?</a>
                             </label>
@@ -57,15 +76,15 @@ const Login = () => {
                             <label className="label">
                                 <a className="label-text dark:text-white text-darkPrimary">Email</a>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered w-full bg-white" required />
+                            <input type="email" placeholder="email" autoComplete='current-email' className="input input-bordered w-full bg-white" required />
                         </div>
                         <div className="">
                             <label className="label">
                                 <a className="label-text dark:text-white text-darkPrimary">Password</a>
                             </label>
-                            <input type="password" placeholder="password" className="input input-bordered w-full bg-white" required />
+                            <input type="password" placeholder="password" autoComplete='current-password' className="input input-bordered w-full bg-white" required />
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover dark:text-white text-darkPrimary ">Forgot password?</a><a className="relative bottom-9 right-2 float-end"><FaEye size={20}/></a>
+                                <a href="#" className="label-text-alt link link-hover dark:text-white text-darkPrimary ">Forgot password?</a><a className="relative bottom-9 right-2 float-end"><FaEye size={20} /></a>
                             </label>
                         </div>
                         <div className="mt-6">
