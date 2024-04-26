@@ -11,6 +11,9 @@ export default {
       fontFamily:{
         trioBangla:"'Tiro Bangla', serif;",
 
+      },
+      colors:{
+        darkPrimary:'#1d232a'
       }
     },
   },

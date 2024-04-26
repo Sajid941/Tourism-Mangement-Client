@@ -1,13 +1,14 @@
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
     const navLink = <>
-        <li><span>Home</span></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>
         <li><span>All Tourists Spot</span></li>
         <li><span>Add Tourists Spot</span></li>
         <li><span>My List</span></li>
     </>
     return (
-        <div className="navbar bg-white/30 backdrop-blur-lg bg-opacity-30 dark:bg-[#1d232a] dark:text-white text-[#181818] shadow-lg px-10 fixed z-10 ">
+        <div className="navbar bg-white/30 backdrop-blur-lg bg-opacity-30 dark:bg-darkPrimary dark:text-white text-[#181818] shadow-lg md:px-10  fixed z-10 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,8 +26,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 </ul>
             </div>
             <div className="navbar-end space-x-3">
-                <label className="cursor-pointer grid place-items-center">
-                    <label className="swap swap-rotate ">
+                <label className="cursor-pointer grid place-items-center ">
+                    <label className="swap swap-rotate">
 
                         {/* this hidden checkbox controls the state */}
                         <input onChange={()=>setDarkMode(!darkMode)} type="checkbox" className="theme-controller" value="synthwave" />
@@ -39,7 +40,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
                     </label>
                 </label>
-                <a className="btn bg-green-600 text-white border-none h">Login</a>
+                <Link to={'/login'} className="btn bg-green-600 text-white border-none h">Login</Link>
             </div>
         </div>
     );
