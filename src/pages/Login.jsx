@@ -6,7 +6,7 @@ import useAuth from '../hooks/useAuth';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { logIn, logInWithGoogle } = useAuth()
+    const { logIn, logInWithGoogle, logInWithGithub } = useAuth()
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -55,6 +55,28 @@ const Login = () => {
             })
 
     }
+    const handleGitHubLogin = () => {
+        logInWithGithub()
+            .then(result => {
+                console.log(result.user)
+                Swal.fire({
+                    title: 'Log In',
+                    text: 'Log In successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    title: 'Log In Error!',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                })
+            })
+
+    }
     return (
         <div className=''>
             <section className="md:flex flex-wrap justify-center items-center gap-1 my-10 hidden">
@@ -65,7 +87,7 @@ const Login = () => {
                     <h1 className="text-4xl font-bold text-white hover:text-[#00fd00]">Login Here</h1>
                     <div className='border-b-2 space-y-3 pb-5 '>
                         <button onClick={handleGoogleLogin} className='btn w-full bg-white text-[#3d3d3d] hover:text-white border-none'><FaGoogle size={20} /> Login with Google</button>
-                        <a className='btn w-full bg-white text-[#3d3d3d] hover:text-white border-none'><FaGithub size={20} />Login with Github</a>
+                        <button onClick={handleGitHubLogin} className='btn w-full bg-white text-[#3d3d3d] hover:text-white border-none'><FaGithub size={20} />Login with Github</button>
                     </div>
                     <form onSubmit={handleLogin} className="p-4 ">
                         <div className="w-full">
@@ -96,6 +118,10 @@ const Login = () => {
             <div className='pt-24 mb-10 px-4'>
                 <div className='md:hidden  dark:bg-darkPrimary  p-5 text-center rounded-xl dark:border-white border-black border space-y-3'>
                     <h1 className="text-4xl font-bold dark:text-white text-darkPrimary hover:text-[#00fd00]">Login Here</h1>
+                    <div className='border-b-2 space-y-3 pb-5 '>
+                        <button onClick={handleGoogleLogin} className='btn w-full bg-white text-[#3d3d3d] hover:text-white border-none'><FaGoogle size={20} /> Login with Google</button>
+                        <button onClick={handleGitHubLogin} className='btn w-full bg-white text-[#3d3d3d] hover:text-white border-none'><FaGithub size={20} />Login with Github</button>
+                    </div>
                     <form onSubmit={handleLogin} className="p-4 ">
                         <div className="w-full">
                             <label className="label">

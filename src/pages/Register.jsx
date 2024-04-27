@@ -74,7 +74,7 @@ const Register = () => {
                         <input type="password" name='password' placeholder="password" autoComplete="current-password" className="input input-bordered w-full bg-white" required />
                     </div>
                     <div className="mt-6">
-                        <input type="submit" value="Register" className="btn bg-green-600 text-white border-none w-full" />
+                        <input type="submit" value="Create Account" className="btn bg-gradient-to-r from-green-600 via-green-500 to-green-400 text-white border-none w-full" />
                     </div>
                     <p className='text-white mt-2'>Already have a account? <Link to={'/login'} className='hover:underline hover:text-blue-600'>Login</Link></p>
                 </form>
