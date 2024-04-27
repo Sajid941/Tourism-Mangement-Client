@@ -6,6 +6,7 @@ const HomePage = () => {
     const touristSpots = useLoaderData()
     return (
         <div className="lg:w-[1250px] snap-none mx-auto">
+            {/* banner section */}
             <div className="carousel my-10 ">
                 <div id="slide1" className="carousel-item relative w-full ">
                     <div className="grid grid-cols-2  items-center  px-10 lg:px-32">
@@ -48,9 +49,11 @@ const HomePage = () => {
                 </div>
 
             </div>
+            {/* Tourist spot section */}
             <div >
-                <div className="text-center">
+                <div className="text-center px-5 space-y-3 mt-10 mb-5 lg:px-48">
                     <h1 className="text-3xl md:text-4xl font-bold">Tourists Spot</h1>
+                    <p className="text-[#757575]">With its beauty and variety of activities, Guring Fering promises an unforgettable experience for visitors of all ages. Come discover the magic of Guring Fering and create memories that will last a lifetime!</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 p-5 ld:p-0 gap-6">
                     {
@@ -58,6 +61,7 @@ const HomePage = () => {
                     }
                 </div>
             </div>
+                    {/* Testimonial section */}
         </div>
     );
 };
