@@ -2,43 +2,51 @@ import { createContext, useEffect, useState } from "react";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../services/firebase.config";
 
-export  const AuthContext= createContext(null)
+export const AuthContext = createContext(null)
 
-const auth =getAuth(app)
+const auth = getAuth(app)
 
 
-const AuthProvider = ({children}) => {
-    const [user,setUser]=useState(null)
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider()
-    const gitHubProvider= new GithubAuthProvider()
+    const gitHubProvider = new GithubAuthProvider()
 
-    const createUser=(email,password)=>{
-        return createUserWithEmailAndPassword(auth,email,password)
+    const createUser = (email, password) => {
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const logIn =(email,password)=>{
-        return signInWithEmailAndPassword(auth,email,password)
+    const logIn = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const logInWithGoogle=()=>{
-        return signInWithPopup(auth,googleProvider)
+    const logInWithGoogle = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
     }
 
-    const logInWithGithub=()=>{
-        return signInWithPopup(auth,gitHubProvider)
+    const logInWithGithub = () => {
+        setLoading(true)
+        return signInWithPopup(auth, gitHubProvider)
     }
 
-    const logOut = ()=>{
+    const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth,currentUser=>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log(currentUser);
             setUser(currentUser)
+            setLoading(false)
+
         })
-        return ()=>unSubscribe()
-    },[])
+        return () => unSubscribe()
+    }, [])
 
     const authInfo = {
         user,
