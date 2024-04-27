@@ -1,6 +1,9 @@
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useLoaderData } from "react-router-dom";
+import TouristSpotCard from "../components/TouristSpotCard/TouristSpotCard";
 
 const HomePage = () => {
+    const touristSpots = useLoaderData()
     return (
         <div className="lg:w-[1250px]  mx-auto">
             <div className="carousel my-10">
@@ -44,6 +47,11 @@ const HomePage = () => {
                     </div>
                 </div>
 
+            </div>
+            <div className="border grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {
+                    touristSpots.map((touristSpot,idx) => <TouristSpotCard key={idx}></TouristSpotCard> )
+                }
             </div>
         </div>
     );

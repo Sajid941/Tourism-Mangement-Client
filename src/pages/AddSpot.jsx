@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 
 const AddSpot = () => {
@@ -28,7 +29,14 @@ const AddSpot = () => {
         .then(res => res.json())
         .then(data=>{
             console.log(data);
+            Swal.fire({
+                title: 'Added',
+                text: 'Spot added successfully',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
             form.reset()
+
         })
     }
     return (
