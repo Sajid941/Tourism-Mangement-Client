@@ -3,6 +3,7 @@ import '../styles/login.css'
 import { FaEye, FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import useAuth from '../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { logIn, logInWithGoogle } = useAuth()
@@ -15,18 +16,42 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    title: 'Log In',
+                    text: 'Log In successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
             })
             .catch(error => {
                 console.error(error);
+                Swal.fire({
+                    title: 'Log In Error!',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                })
             })
     }
     const handleGoogleLogin = () => {
         logInWithGoogle()
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    title: 'Log In',
+                    text: 'Log In successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
             })
             .catch(error => {
                 console.error(error);
+                Swal.fire({
+                    title: 'Log In Error!',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                })
             })
 
     }
@@ -39,8 +64,8 @@ const Login = () => {
                 <div className='bg-white/30 absolute backdrop-blur-sm bg-opacity-30 border border-white/30 p-8 text-center rounded-xl space-y-3'>
                     <h1 className="text-4xl font-bold text-white hover:text-[#00fd00]">Login Here</h1>
                     <div className='border-b-2 space-y-3 pb-5 '>
-                        <a onClick={handleGoogleLogin} className='btn w-full bg-white text-black hover:text-white border-none'><FaGoogle size={20} /> Login with Google</a>
-                        <a className='btn w-full bg-white text-black hover:text-white border-none'><FaGithub size={20} />Login with Github</a>
+                        <button onClick={handleGoogleLogin} className='btn w-full bg-white text-[#3d3d3d] hover:text-white border-none'><FaGoogle size={20} /> Login with Google</button>
+                        <a className='btn w-full bg-white text-[#3d3d3d] hover:text-white border-none'><FaGithub size={20} />Login with Github</a>
                     </div>
                     <form onSubmit={handleLogin} className="p-4 ">
                         <div className="w-full">
@@ -76,13 +101,13 @@ const Login = () => {
                             <label className="label">
                                 <a className="label-text dark:text-white text-darkPrimary">Email</a>
                             </label>
-                            <input type="email" placeholder="email" autoComplete='current-email' className="input input-bordered w-full bg-white" required />
+                            <input type="email" placeholder="email" autoComplete='current-email' className="input input-bordered w-full bg-white border border-blackText" required />
                         </div>
                         <div className="">
                             <label className="label">
                                 <a className="label-text dark:text-white text-darkPrimary">Password</a>
                             </label>
-                            <input type="password" placeholder="password" autoComplete='current-password' className="input input-bordered w-full bg-white" required />
+                            <input type="password" placeholder="password" autoComplete='current-password' className="input input-bordered w-full bg-white  border-blackText" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover dark:text-white text-darkPrimary ">Forgot password?</a><a className="relative bottom-9 right-2 float-end"><FaEye size={20} /></a>
                             </label>

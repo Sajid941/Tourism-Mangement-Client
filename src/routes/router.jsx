@@ -8,11 +8,14 @@ import Register from "../pages/Register";
 import AllSpot from './../pages/AllSpot';
 import AddSpot from "../pages/AddSpot";
 import MyList from './../pages/MyList';
+import ErrorPage from "../pages/ErrorPage";
+import ContactUs from "../pages/ContactUs";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement:<ErrorPage/>,
         children:[
             {
                 path:'/',
@@ -38,6 +41,10 @@ const router = createBrowserRouter([
                 path:'/myList',
                 element:<MyList/>
             },
+            {
+                path:'/contactUs',
+                element:<ContactUs/>
+            }
         ]
     },
 ]);

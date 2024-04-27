@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css"
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { Tooltip } from 'react-tooltip'
 const Navbar = ({ darkMode, setDarkMode }) => {
     const { user, logOut } = useAuth()
 
@@ -30,6 +31,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         <li><NavLink className={"pb-2 hover:text-green-600"} to={'/allSpot'}>All Tourists Spot</NavLink></li>
         <li><NavLink className={"pb-2 hover:text-green-600"} to={'/addSpot'}>Add Tourists Spot</NavLink></li>
         <li><NavLink className={"pb-2 hover:text-green-600"} to={'/myList'}>My List</NavLink></li>
+        <li><NavLink className={"pb-2 hover:text-green-600"} to={'/contactUs'}>ContactUs</NavLink></li>
     </>
     return (
         <div className="navbar bg-white/30 backdrop-blur-lg bg-opacity-30 dark:bg-darkPrimary dark:text-white text-[#181818] shadow-lg md:px-10  fixed z-10 ">
@@ -38,14 +40,16 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="space-y-4 p-4 menu-sm dropdown-content mt-3 z-[1]  shadow  rounded-box w-52 bg-white dark:bg-darkPrimary">
+                <a className="text-center ml-8 font-bold text-green-600 ">ঘুড়িং ফিড়িং</a>
+
                         {navLink}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl text-green-600">ঘুড়িং ফিড়িং</a>
+                <a className="btn btn-ghost text-xl text-green-600 hidden md:block">ঘুড়িং ফিড়িং</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="flex gap-4">
+                <ul className="flex gap-6 ">
                     {navLink}
                 </ul>
             </div>
@@ -65,11 +69,24 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     </label>
                 </label>
                 {
+
+                }
+                {
                     user ?
-                        <Link onClick={handleLogOut} className="btn bg-green-600 text-white border-none h">Log Out</Link> :
-                        <Link to={'/login'} className="btn bg-green-600 text-white border-none h">Login</Link>
+                        user && <div id="user-image" data-tooltip-variant="light" className="avatar">
+                            <div className="w-12 rounded-full">
+                                <img src={user.photoURL} />
+                            </div>
+                            <Tooltip anchorSelect="#user-image" clickable>
+                                {user.displayName} <br />
+                                <button onClick={handleLogOut} className="btn bg-white mt-3">Log out</button>
+                            </Tooltip>
+                        </div> :
+                        <span className="space-x-3 flex">
+                            <Link to={'/login'} className="btn bg-green-600 text-white border-none h">Login</Link>
+                            <Link to={'/register'} className="btn bg-[#4267b2] text-white border-none h">Register</Link>
 
-
+                        </span>
                 }
             </div>
         </div>

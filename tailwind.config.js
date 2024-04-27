@@ -13,7 +13,8 @@ export default {
         inter:"'Inter', sans-serif;"
       },
       colors:{
-        darkPrimary:'#1d232a'
+        darkPrimary:'#1d232a',
+        blackText:'#3d3d3d'
       },
     },
 
