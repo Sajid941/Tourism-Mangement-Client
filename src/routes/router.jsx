@@ -10,6 +10,7 @@ import AddSpot from "../pages/AddSpot";
 import MyList from './../pages/MyList';
 import ErrorPage from "../pages/ErrorPage";
 import ContactUs from "../pages/ContactUs";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/addSpot',
-                element:<AddSpot/>
+                element:<PrivateRoute> <AddSpot/> </PrivateRoute>
             },
             {
                 path:'/myList',

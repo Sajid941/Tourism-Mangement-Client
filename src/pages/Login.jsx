@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/login.css'
 import { FaEye, FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
@@ -7,6 +7,9 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const { logIn, logInWithGoogle, logInWithGithub } = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location, navigate)
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -22,6 +25,7 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                navigate(location.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error);
@@ -43,6 +47,7 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                navigate(location.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error);
@@ -65,6 +70,7 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                navigate(location.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error);
