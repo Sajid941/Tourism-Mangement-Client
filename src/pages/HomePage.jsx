@@ -2,7 +2,6 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import TouristSpotCard from "../components/TouristSpotCard/TouristSpotCard";
-
 const HomePage = () => {
     const touristSpots = useLoaderData()
     return (
@@ -58,7 +57,7 @@ const HomePage = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 p-5  lg:p-0 gap-6">
                     {
-                        touristSpots.map((touristSpot, idx) => <TouristSpotCard key={idx} touristSpot={touristSpot}></TouristSpotCard>)
+                        touristSpots.slice(0,6).map((touristSpot, idx) => <TouristSpotCard key={idx} touristSpot={touristSpot}></TouristSpotCard>)
                     }
                 </div>
             </div>

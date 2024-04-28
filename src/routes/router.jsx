@@ -16,36 +16,37 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        errorElement:<ErrorPage/>,
-        children:[
+        errorElement: <ErrorPage />,
+        children: [
             {
-                path:'/',
-                element:<HomePage/>,
-                loader:()=>fetch('http://localhost:3000/touristSpots')
+                path: '/',
+                element: <HomePage />,
+                loader: () => fetch('http://localhost:3000/touristSpots')
             },
             {
-                path:'/login',
-                element:<Login/>
+                path: '/login',
+                element: <Login />
             },
             {
-                path:'/register',
-                element:<Register/>
+                path: '/register',
+                element: <Register />
             },
             {
-                path:'/allSpot',
-                element:<AllSpot/>
+                path: '/allSpot',
+                element: <AllSpot />,
+                loader: () => fetch('http://localhost:3000/touristSpots')
             },
             {
-                path:'/addSpot',
-                element:<PrivateRoute> <AddSpot/> </PrivateRoute>
+                path: '/addSpot',
+                element: <PrivateRoute> <AddSpot /> </PrivateRoute>
             },
             {
-                path:'/myList',
-                element:<MyList/>
+                path: '/myList',
+                element: <MyList />
             },
             {
-                path:'/contactUs',
-                element:<ContactUs/>
+                path: '/contactUs',
+                element: <ContactUs />
             }
         ]
     },
