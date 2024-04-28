@@ -29,8 +29,16 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     const navLink = <>
         <li><NavLink className={"pb-2 hover:text-green-600"} to={'/'}>Home</NavLink></li>
         <li><NavLink className={"pb-2 hover:text-green-600"} to={'/allSpot'}>All Tourists Spot</NavLink></li>
-        <li><NavLink className={"pb-2 hover:text-green-600"} to={'/addSpot'}>Add Tourists Spot</NavLink></li>
-        <li><NavLink className={"pb-2 hover:text-green-600"} to={'/myList'}>My List</NavLink></li>
+        {
+            user &&
+            <li><NavLink className={"pb-2 hover:text-green-600"} to={'/addSpot'}>Add Tourists Spot</NavLink></li>
+
+        }
+        {
+            user &&
+            <li><NavLink className={"pb-2 hover:text-green-600"} to={'/myList'}>My List</NavLink></li>
+
+        }
         <li><NavLink className={"pb-2 hover:text-green-600"} to={'/contactUs'}>ContactUs</NavLink></li>
     </>
     return (
@@ -41,7 +49,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="space-y-4 p-4 menu-sm dropdown-content mt-3 z-[1]  shadow  rounded-box w-52 bg-white dark:bg-darkPrimary">
-                <a className="text-center ml-8 font-bold text-green-600 ">ঘুড়িং ফিড়িং</a>
+                        <a className="text-center ml-8 font-bold text-green-600 ">ঘুড়িং ফিড়িং</a>
 
                         {navLink}
                     </ul>
