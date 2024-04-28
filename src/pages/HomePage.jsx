@@ -1,5 +1,6 @@
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 import TouristSpotCard from "../components/TouristSpotCard/TouristSpotCard";
 
 const HomePage = () => {
@@ -83,8 +84,8 @@ const HomePage = () => {
                         <div className="rating w-20 top-3">
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked/>
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"  />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
 
                         </div>
@@ -110,7 +111,7 @@ const HomePage = () => {
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"  />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
 
                         </div>
@@ -137,13 +138,30 @@ const HomePage = () => {
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"  />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
 
                         </div>
                         <div className="ml-12 mt-2">
                             <p className="text-2xl font-bold text-blackText dark:text-white">Mr. David</p>
                             <p className="text-[#757575]">Traveler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div className="hero   dark:bg-none my-10">
+                    <div className="hero-content grid md:grid-cols-2">
+                        <img src="https://i.postimg.cc/rmhk6QH9/phong-nha-cave-tour-is-the-best-chance-to-experience-vietnam-nature-saigon-riders.jpg" className="rounded-lg shadow-2xl" />
+                        <div className="space-y-3">
+                            <h1 className="text-5xl font-bold text-blackText dark:text-white">About Us</h1>
+                            <div>
+                                <p className="flex items-center gap-2 text-[#757575]"><IoIosCheckmarkCircle color="#16a34a"></IoIosCheckmarkCircle> All places and activeates are carefully picked by us.</p>
+                                <p className="flex items-center gap-2 text-[#757575]"><IoIosCheckmarkCircle color="#16a34a"></IoIosCheckmarkCircle> We guarantee top-notch quality and safety for all our recommendations.</p>
+                                <p className="flex items-center gap-2 text-[#757575]"><IoIosCheckmarkCircle color="#16a34a"></IoIosCheckmarkCircle> Whether solo or with family, we customize experiences to your preferences.</p>
+                                <p className="flex items-center gap-2 text-[#757575]"><IoIosCheckmarkCircle color="#16a34a"></IoIosCheckmarkCircle> Trusted by more than 80,000 customers</p>
+                            </div>
+                            <button className="btn bg-green-600 border-none text-white">Read more</button>
                         </div>
                     </div>
                 </div>
