@@ -1,7 +1,8 @@
 import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const TouristSpotCard = ({ touristSpot }) => {
-    const { image, spot_name, short_description, country_name, seasonality, travel_time } = touristSpot
+    const { _id,image, spot_name, short_description, country_name, seasonality, travel_time } = touristSpot
     return (
         <div className="card card-compact dark:border dark:border-[#757575] shadow-xl">
             <figure>
@@ -23,7 +24,7 @@ const TouristSpotCard = ({ touristSpot }) => {
                     <p>{travel_time} days</p>
                 </div>
                 <div className="card-actions justify-end">
-                    <button className="btn mt-3 w-full hover:bg-[#0284c7] bg-[#478dc9] text-white border-none">View Details</button>
+                    <Link to={`/viewDetails/${_id}`} className="btn mt-3 w-full hover:bg-[#0284c7] bg-[#478dc9] text-white border-none">View Details</Link>
                 </div>
             </div>
         </div>

@@ -11,11 +11,12 @@ import MyList from './../pages/MyList';
 import ErrorPage from "../pages/ErrorPage";
 import ContactUs from "../pages/ContactUs";
 import PrivateRoute from "./PrivateRoute";
+import ViewDetails from "../pages/ViewDetails";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root></Root>,
+        element: <Root/>,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -42,11 +43,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myList',
-                element: <MyList />
+                element: <PrivateRoute><MyList /></PrivateRoute>
             },
             {
                 path: '/contactUs',
                 element: <ContactUs />
+            },
+            {
+                path: '/viewDetails/:id',
+                element: <PrivateRoute><ViewDetails/></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:3000/touristSpots/${params.id}`)
             }
         ]
     },
