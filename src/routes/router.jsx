@@ -12,6 +12,7 @@ import ErrorPage from "../pages/ErrorPage";
 import ContactUs from "../pages/ContactUs";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../pages/ViewDetails";
+import UpdatePage from "../pages/UpdatePage";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myList',
-                element: <PrivateRoute><MyList /></PrivateRoute>
+                element: <PrivateRoute><MyList /></PrivateRoute>,
             },
             {
                 path: '/contactUs',
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
             {
                 path: '/viewDetails/:id',
                 element: <PrivateRoute><ViewDetails/></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:3000/touristSpots/${params.id}`)
+            },
+            {
+                path:'/updatePage/:id',
+                element:<PrivateRoute> <UpdatePage/> </PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:3000/touristSpots/${params.id}`)
             }
         ]

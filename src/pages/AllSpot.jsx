@@ -40,7 +40,7 @@ const AllSpot = () => {
                         <li onClick={handleSortUnder40000}><a>Under 40000 Taka</a></li>
                         <li onClick={handleSortUnder50000}><a>Under 50000 Taka</a></li>
                         <li onClick={handleSortUnder60000}><a>Under 60000 Taka</a></li>
-                        <li onClick={handleAscendingSort}><a>Under</a></li>
+                        <li onClick={handleAscendingSort}><a>Lowest - Highest</a></li>
                         <li onClick={()=>setAllTouristSpots(LoadedAllTouristSpots)} className="text-blue-700"><a>Show All</a></li>
                     </ul>
                 </div>
