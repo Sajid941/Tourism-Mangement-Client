@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyList = () => {
-    const { user } = useAuth()
+    const { user, dataLoading, setDataLoading } = useAuth()
     const [touristSpots, setTouristSpots] = useState([])
     // touristSpots.filter(touristSpot => console.log(touristSpot._id))
     useEffect(() => {
         fetch(`http://localhost:3000/myList/${user?.email}`)
             .then(res => res.json())
-            .then(data => setTouristSpots(data))
-    }, [user])
+            .then(data => {
+                setTouristSpots(data)
+            })
+            .finally(() => {
+                setDataLoading(false)
+            })
+    })
 
 
     const handleDeleteSpot = (id) => {
@@ -44,6 +49,11 @@ const MyList = () => {
                     })
             }
         });
+    }
+    if (dataLoading) {
+        return <div className="flex justify-center h-screen  border-4 items-center">
+            <span className="loading loading-spinner text-success"></span>
+        </div>
     }
     return (
         <div className=" lg:px-20 my-10">

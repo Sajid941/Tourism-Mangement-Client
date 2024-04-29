@@ -2,10 +2,13 @@ import { useLoaderData } from "react-router-dom";
 import { SlArrowDown } from "react-icons/sl";
 import TouristSpotCard from "../components/TouristSpotCard/TouristSpotCard";
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 const AllSpot = () => {
+    const { dataLoading, setDataLoading } = useAuth()
     const LoadedAllTouristSpots = useLoaderData()
     const [allTouristSpots, setAllTouristSpots] = useState(LoadedAllTouristSpots)
+
     const handleSortUnder30000 = () => {
         const filterSpot = LoadedAllTouristSpots.filter(LoadedAllTouristSpot => LoadedAllTouristSpot.average_cost < "30000")
         setAllTouristSpots(filterSpot)
@@ -22,9 +25,18 @@ const AllSpot = () => {
         const filterSpot = LoadedAllTouristSpots.filter(LoadedAllTouristSpot => LoadedAllTouristSpot.average_cost < "60000")
         setAllTouristSpots(filterSpot)
     }
-    const handleAscendingSort =()=>{
-        const hello =allTouristSpots.sort((a,b)=>a.average_cost>b.average_cost?1:-1).map(allTouristSpot=> {return(allTouristSpot)})
+    const handleAscendingSort = () => {
+        const hello = allTouristSpots.sort((a, b) => a.average_cost > b.average_cost ? 1 : -1).map(allTouristSpot => { return (allTouristSpot) })
         setAllTouristSpots(hello)
+    }
+    if (allTouristSpots.length) {
+        setDataLoading(false)
+    }
+
+    if (dataLoading) {
+        return <div className="flex justify-center h-screen md:h-[470px] border-4 items-center">
+            <span className="loading loading-spinner text-success"></span>
+        </div>
     }
     return (
         <div className="lg:w-[1250px] mx-auto my-10">
@@ -41,7 +53,7 @@ const AllSpot = () => {
                         <li onClick={handleSortUnder50000}><a>Under 50000 Taka</a></li>
                         <li onClick={handleSortUnder60000}><a>Under 60000 Taka</a></li>
                         <li onClick={handleAscendingSort}><a>Lowest - Highest</a></li>
-                        <li onClick={()=>setAllTouristSpots(LoadedAllTouristSpots)} className="text-blue-700"><a>Show All</a></li>
+                        <li onClick={() => setAllTouristSpots(LoadedAllTouristSpots)} className="text-blue-700"><a>Show All</a></li>
                     </ul>
                 </div>
             </div>
