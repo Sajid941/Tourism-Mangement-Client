@@ -53,7 +53,7 @@ const HomePage = () => {
             <div >
                 <div className="text-center px-5 space-y-3 mt-10 mb-5 lg:px-48">
                     <h1 className="text-2xl md:text-4xl font-bold text-blackText dark:text-white">Tourists Spot</h1>
-                    <p className="text-[#757575]">With its beauty and variety of activities, Guring Fering promises an unforgettable experience for visitors of all ages. Come discover the magic of Guring Fering and create memories that will last a lifetime!</p>
+                    <p className="text-[#757575]">With its beauty and variety of activities, WayWise promises an unforgettable experience for visitors of all ages. Come discover the magic of WayWise and create memories that will last a lifetime!</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 p-5  lg:p-0 gap-6">
                     {
@@ -65,14 +65,14 @@ const HomePage = () => {
             <div>
                 <div className="text-center px-5 space-y-3 md:mt-20 mb-5 lg:px-48">
                     <h1 className="text-2xl md:text-4xl text-blackText dark:text-white font-bold">Traveler Testimonial</h1>
-                    <p className="text-[#757575]">This header invites visitors to explore testimonials from others who have experienced the beauty and charm of Guring Firing, offering insights and inspiration for their own visit.</p>
+                    <p className="text-[#757575]">This header invites visitors to explore testimonials from others who have experienced the beauty and charm of WayWise, offering insights and inspiration for their own visit.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 p-5 md:p-0 gap-6 md:mb-20">
                     {/* Testimonial -01 */}
                     <div >
                         <div className="bg-[#f4f4f4] dark:bg-[#1d232a] dark:border dark:border-white h-64 rounded-xl p-5 md:p-10">
                             <p className="text-blackText dark:text-white">
-                                Guring Firing is a hidden gem along the Australian coast! The beach is pristine, the hiking trails offer breathtaking views, and the historic sites give you a taste of the area,s rich heritage. A must-visit for anyone looking for a unique coastal experience.
+                                WayWise is a hidden gem along the Australian coast! The beach is pristine, the hiking trails offer breathtaking views, and the historic sites give you a taste of the area,s rich heritage. A must-visit for anyone looking for a unique coastal experience.
                             </p>
                         </div>
                         <div className="avatar relative bottom-6 left-14">
@@ -98,7 +98,7 @@ const HomePage = () => {
                     <div>
                         <div className="bg-[#f4f4f4] dark:bg-[#1d232a] dark:border dark:border-white h-64  rounded-xl p-5 md:p-10">
                             <p className="text-blackText dark:text-white">
-                                I fell in love with Guring Firing the moment I set foot on its sandy shores. The rock pools are teeming with life, the sunsets are spectacular, and the sound of the waves is so soothing. It,s like stepping into a postcard!
+                                I fell in love with WayWise the moment I set foot on its sandy shores. The rock pools are teeming with life, the sunsets are spectacular, and the sound of the waves is so soothing. It,s like stepping into a postcard!
                             </p>
                         </div>
                         <div className="avatar relative bottom-6 left-14">
@@ -125,7 +125,7 @@ const HomePage = () => {
                     <div>
                         <div className="bg-[#f4f4f4] dark:bg-[#1d232a] dark:border dark:border-white h-64 rounded-xl p-5 md:p-10">
                             <p className="text-blackText dark:text-white">
-                                As a history buff, I was fascinated by the preservation of the historic sites at Guring Firing. It felt like stepping back in time to the early days of Australian settlement. Such a unique and special place!
+                                As a history buff, I was fascinated by the preservation of the historic sites at WayWise. It felt like stepping back in time to the early days of Australian settlement. Such a unique and special place!
                             </p>
                         </div>
                         <div className="avatar relative bottom-6 left-14">
