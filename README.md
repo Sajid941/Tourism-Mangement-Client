@@ -4,7 +4,7 @@ WayWise is a travel planning and discovery platform that helps you explore the w
 
 - [@LiveLink](https://a10-tourism-management.web.app/)
 
-* Countries We support
+# Countries We support
 - Bangladesh
 - Thailand
 - Indonesia
