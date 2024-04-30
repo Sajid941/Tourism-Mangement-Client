@@ -1,8 +1,14 @@
-# React + Vite
+# Way Wise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WayWise is a travel planning and discovery platform that helps you explore the world's most amazing destinations, find the best travel deals, and create unforgettable experiences. Whether you're a seasoned traveler or planning your first trip, WayWise has everything you need to make your journey extraordinary.
 
-Currently, two official plugins are available:
+- [@LiveLink](https://a10-tourism-management.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Countries We support
+-Bangladesh
+-Thailand
+-Indonesia
+-Malaysia
+-Vietnam
+
+
