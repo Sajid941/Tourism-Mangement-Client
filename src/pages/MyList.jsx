@@ -8,7 +8,7 @@ const MyList = () => {
     const [touristSpots, setTouristSpots] = useState([])
     // touristSpots.filter(touristSpot => console.log(touristSpot._id))
     useEffect(() => {
-        fetch(`http://localhost:3000/myList/${user?.email}`)
+        fetch(`https://a10-tourism-management-server.vercel.app/myList/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setTouristSpots(data)
@@ -32,7 +32,7 @@ const MyList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/touristSpots/${id}`, {
+                fetch(`https://a10-tourism-management-server.vercel.app/touristSpots/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

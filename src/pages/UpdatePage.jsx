@@ -21,7 +21,7 @@ const UpdatePage = () => {
         const short_description = form.short_description.value;
         const updateSpot = { image, spot_name, country_name, location, average_cost, seasonality, travel_time, total_visitors_per_year, short_description }
 
-        fetch(`http://localhost:3000/touristSpots/${touristSpot._id}`, {
+        fetch(`https://a10-tourism-management-server.vercel.app/touristSpots/${touristSpot._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

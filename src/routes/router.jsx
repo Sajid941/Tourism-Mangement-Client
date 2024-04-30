@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <HomePage />,
-                loader: () => fetch('http://localhost:3000/touristSpots')
+                loader: () => fetch('https://a10-tourism-management-server.vercel.app/touristSpots')
             },
             {
                 path: '/login',
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: '/allSpot',
                 element: <AllSpot />,
-                loader: () => fetch('http://localhost:3000/touristSpots')
+                loader: () => fetch('https://a10-tourism-management-server.vercel.app/touristSpots')
             },
             {
                 path: '/addSpot',
@@ -54,17 +54,17 @@ const router = createBrowserRouter([
             {
                 path: '/viewDetails/:id',
                 element: <PrivateRoute><ViewDetails/></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:3000/touristSpots/${params.id}`)
+                loader:({params})=>fetch(`https://a10-tourism-management-server.vercel.app/touristSpots/${params.id}`)
             },
             {
                 path:'/updatePage/:id',
                 element:<PrivateRoute> <UpdatePage/> </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:3000/touristSpots/${params.id}`)
+                loader:({params})=>fetch(`https://a10-tourism-management-server.vercel.app/touristSpots/${params.id}`)
             },
             {
                 path:'/countriesSpots/:countries',
                 element:<CountriesSpots></CountriesSpots>,
-                loader:({params}) => fetch(`http://localhost:3000/countriesTouristSpot/${params.countries}`)
+                loader:({params}) => fetch(`https://a10-tourism-management-server.vercel.app/countriesTouristSpot/${params.countries}`)
             }
         ]
     },
